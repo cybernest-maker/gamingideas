@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gaming Ideas Hub</title>
+    <style>
+        /* ====== CSS Inline ====== */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f0f0f0;
+            text-align: center;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            padding: 20px;
+        }
+
+        nav button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #ff9800;
+            color: white;
+            font-weight: bold;
+        }
+
+        .category {
+            display: none;
+            padding: 20px;
+        }
+
+        .category.active {
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 1px 1px 5px #ccc;
+        }
+
+        .video-card {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .video-card a {
+            display: block;
+            margin-top: 5px;
+            padding: 5px 8px;
+            background: #064420;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🎮 Gaming Ideas Hub</h1>
+    <nav>
+        <button onclick="showCategory('metaop')">Metaop Hundreds</button>
+        <button onclick="showCategory('car')">Car Games</button>
+        <button onclick="showCategory('bestcar')">Best Car Games</button>
+        <button onclick="showCategory('trailers')">Game Trailers</button>
+    </nav>
+</header>
+
+<main>
+    <!-- Metaop -->
+    <section id="metaop" class="category active">
+        <h2>Metaop Hundreds Game Ideas</h2>
+        <ul id="metaopList"></ul>
+    </section>
+
+    <!-- Car Games -->
+    <section id="car" class="category">
+        <h2>Car Games Ideas</h2>
+        <ul id="carList"></ul>
+    </section>
+
+    <!-- Best Car Games -->
+    <section id="bestcar" class="category">
+        <h2>Best Car Games Ideas</h2>
+        <ul id="bestcarList"></ul>
+    </section>
+
+    <!-- Trailers -->
+    <section id="trailers" class="category">
+        <h2>Game Trailers</h2>
+        <div class="video-card">
+            <video controls width="320">
+                <source src="trailers/trailer1.mp4" type="video/mp4">
+            </video>
+            <a href="trailers/trailer1.mp4" download>Download Trailer</a>
+        </div>
+        <div class="video-card">
+            <video controls width="320">
+                <source src="trailers/trailer2.mp4" type="video/mp4">
+            </video>
+            <a href="trailers/trailer2.mp4" download>Download Trailer</a>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 Gaming Ideas Hub | Made with ❤️</p>
+</footer>
+
+<script>
+    /* ====== JavaScript Inline ====== */
+    function showCategory(categoryId) {
+        const categories = document.querySelectorAll('.category');
+        categories.forEach(cat => cat.classList.remove('active'));
+        document.getElementById(categoryId).classList.add('active');
+    }
+
+    // Game Ideas Data
+    const metaopGames = [
+        "Metaop Battle Royale",
+        "Metaop Adventure Quest",
+        "Metaop Puzzle Challenge",
+        "Metaop Space Wars",
+        "Metaop Speed Run"
+    ];
+
+    const carGames = [
+        "Street Racer",
+        "Desert Drift",
+        "Highway King",
+        "City Car Chase",
+        "Mountain Rally"
+    ];
+
+    const bestCarGames = [
+        "Need for Speed",
+        "Asphalt 9",
+        "Forza Horizon",
+        "CarX Drift Racing",
+        "Real Racing 3"
+    ];
+
+    // Render lists
+    function renderList(id, data) {
+        const ul = document.getElementById(id);
+        data.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            ul.appendChild(li);
+        });
+    }
+
+    renderList("metaopList", metaopGames);
+    renderList("carList", carGames);
+    renderList("bestcarList", bestCarGames);
+</script>
+
+</body>
+</html>
